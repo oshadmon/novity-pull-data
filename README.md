@@ -1,4 +1,4 @@
-# Pullling Smart City Data
+# Pulling Smart City Data
 
 The following provides a sample script to pull data from our smart city demo. 
 
