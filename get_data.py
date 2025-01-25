@@ -24,7 +24,7 @@ def write_data(table_name:str, data_type:str, data:list):
         raise Exception(f"Failed to open file {file_path} (Error: {error})")
 
 
-def execute_get(command:str, is_query:bool=False):
+def execute_get(conn:str, command:str, is_query:bool=False):
     headers = {
         "command": command,
         "User-Agent": "AnyLog/1.23"
@@ -34,12 +34,12 @@ def execute_get(command:str, is_query:bool=False):
         headers['destination'] = 'network'
 
     try:
-        r = requests.get(url=f"http://{CONN}", headers=headers)
+        r = requests.get(url=f"http://{conn}", headers=headers)
     except Exception as error:
-        raise Exception(f"Failed to execute GET against {CONN} (Error: {error})")
+        raise Exception(f"Failed to execute GET against {conn} (Error: {error})")
     else:
         if not 200 <= int(r.status_code) < 300:
-            raise ConnectionError(f"Failed to execute GET against {CONN} (Network Error: {r.status_code})")
+            raise ConnectionError(f"Failed to execute GET against {conn} (Network Error: {r.status_code})")
         try:
             output = r.json()
         except Exception:
@@ -53,7 +53,7 @@ def get_columns():
     """
     for table in TABLES:
         cmd = f"get columns where dbms=cos and table={table} and format=json"
-        output = execute_get(command=cmd, is_query=False)
+        output = execute_get(conn=CONN, command=cmd, is_query=False)
         columns = list(output.keys())
         # remove columns associated with AnnyLog data management
         for column in ['row_id', 'insert_timestamp', 'tsd_name', 'tsd_id']:
@@ -67,7 +67,7 @@ def get_raw_data(table_name:str, columns:list):
     https://github.com/AnyLog-co/documentation/blob/master/queries.md#the-period-function
     """
     query = f'sql cos format=json:list and stat=false "SELECT {",".join(columns)} FROM {table_name} WHERE period(day, 1, now(), timestamp)"'
-    output = execute_get(command=query, is_query=True)
+    output = execute_get(conn=CONN, command=query, is_query=True)
     write_data(table_name=table_name, data_type='raw', data=output)
 
 
@@ -97,7 +97,7 @@ def get_increments(table_name:str, columns:list):
     if group_by:
         query += f" GROUP BY {','.join(group_by)}"
     query += ';"'
-    output = execute_get(command=query, is_query=True)
+    output = execute_get(conn=CONN, command=query, is_query=True)
     write_data(table_name=table_name, data_type='increments', data=output)
 
 
