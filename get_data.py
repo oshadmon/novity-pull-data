@@ -16,7 +16,10 @@ def write_data(table_name:str, data_type:str, data:list):
             f.write("[\n")
             for value in data:
                 try:
-                    f.write("\t" + json.dumps(value) + ",\n")
+                    if value != data[-1]:
+                        f.write("\t" + json.dumps(value) + ",\n")
+                    else:
+                        f.write("\t" + json.dumps(value) + "\n")
                 except Exception as error:
                     raise Exception(f"Failed to dump data into {file_path} (Error: {error})")
             f.write("]")

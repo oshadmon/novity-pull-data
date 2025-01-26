@@ -44,6 +44,7 @@ The select columns for tags is based <a href="http://23.239.12.151:3100/d/ads1vw
 [get_data.py](get_data.py) - Given a list of tables (_water_ and _waste water_), generate a list of corresponding columns,,
 and get raw data, as well as summary data for the last 24 hours. The data is then stored into corresponding files. 
 
+[read_json.py](read_json.py) - Example for reading data from JSON file. Used to validate write is correct.
 
 ## Comments
 **What is period**: The period function finds the first occurrence of data before or at a specified date and considers 
