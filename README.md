@@ -46,6 +46,14 @@ and get raw data, as well as summary data for the last 24 hours. The data is the
 
 [read_json.py](read_json.py) - Example for reading data from JSON file. Used to validate write is correct.
 
+
+## JSON files
+[blockchain.metadata.json](blockchain.metadata.json) - Blockchain data for tags
+
+[wwp_analog.increments.json](wwp_analog.increments.json) - summary of data over last hour in 10 minute intervals 
+
+[wwp_analog.raw.json](wwp_analog.raw.json) - raw data over last hour 
+
 ## Comments
 **What is period**: The period function finds the first occurrence of data before or at a specified date and considers 
 the readings in a period of time which is measured by the type of the time interval. 
