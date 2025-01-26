@@ -8,6 +8,37 @@ The following provides a sample script to pull data from our smart city demo.
 queries. The code also generates a file called `blockchain.metadata.json` which contains a list of tags extracted from
 the blockchain. 
 
+```shell
+python3 blockchain_get_data.py --help
+<<COMMENT
+usage: blockchain_get_data.py [-h] [--conn CONN] [--plant-code {wwp}] [--timestamp-column TIMESTAMP_COLUMN] [--increments-interval {minute,hour,day}]
+                              [--increments-interval-value INCREMENTS_INTERVAL_VALUE] [--where-interval {minute,hour,day}] [--where-interval-value WHERE_INTERVAL_VALUE] [--all-data [ALL_DATA]]
+                              [--summary-data [SUMMARY_DATA]]
+
+optional arguments:
+    -h, --help                                                  show this help message and exit
+    --conn                          CONN                        REST connection
+    --plant-code                    PLANT_CODE                  plant code
+    --increments-interval           INCREMENTS_INTERVAL         increment time interval
+    --increments-interval-value     INCREMENTS_INTERVAL_VALUE   increment time interval value
+    --where-interval                WHERE_INTERVAL              where increment time interval in WHERE condition
+    --where-interval-value          WHERE_INTERVAL_VALUE        increment time interval used in WHERE condition
+    --all-data                      [ALL_DATA]                  Get all data
+    --summary-data                  [SUMMARY_DATA]              Get summary of data
+<<
+
+python3 blockchain_get_data.py \
+  --conn 45.79.18.179:32349 \
+  --plant-code wwp \
+  --timestamp-column timestamp \
+  --increments-interval minute \
+  --increments-interval-value 10 \
+  --where-interval day \
+  --where-interval-value 1 \
+  --all-data \
+  --summary-data
+```
+
 The select columns for tags is based <a href="http://23.239.12.151:3100/d/ads1vwji3bvnkd/overview?orgId=1&refresh=5m" targer="_blanl">Waste Water Dashboard</a>
 
 [get_data.py](get_data.py) - Given a list of tables (_water_ and _waste water_), generate a list of corresponding columns,,
