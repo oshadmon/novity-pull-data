@@ -2,14 +2,20 @@ import json
 import requests
 from get_data import execute_get
 
-CONN = '45.79.18.179:32349'
-
+# CONN = '45.79.18.179:32349'
+CONN = '104.237.130.228:32149'
 plants = {
     "waste water": {
         "code": "wwp",
         "address": "192nd Road, Sabetha, KS 66534",
         "loc": "39.914097, -95.793013"
     },
+    "power plant": {
+        "code": "pp",
+        "address": "805 Main St, Sabetha, KS 66534",
+        "loc": "39.902911, -95.800508"
+    }
+
     # "water": {
     #     "code": "wp",
     #     "address": "66534, Sabetha, KS 66534",
@@ -74,7 +80,7 @@ table_mapping = {
 
 
 def publish_policy(policy:dict):
-    ledger_conn = '10.10.1.10:32048'
+    ledger_conn = '104.237.130.228:32048'
     new_policy = f"<new_policy={json.dumps(policy)}>"
     headers = {
         'command': 'blockchain insert where policy=!new_policy and local=true and master=!ledger_conn',

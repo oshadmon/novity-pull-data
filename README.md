@@ -2,7 +2,7 @@
 
 The following provides a sample script to pull data from our smart city demo. 
 
-[blockchain_tagging.py](blockchain_tagging.py) - Generate a list of tags (one per column) for `wwp_analog` data
+[blockchain_tagging.py](blockchain_waste_water.py) - Generate a list of tags (one per column) for `wwp_analog` data
 
 [blockchain_get_data.py](blockchain_get_data.py) - Using information from tags, execute `increment` and `period` 
 queries. The code also generates a file called `blockchain.metadata.json` which contains a list of tags extracted from
