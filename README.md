@@ -1,58 +1,48 @@
 # Pulling Smart City Data
 
-The following provides a sample script to pull data from our smart city demo. 
-
-[blockchain_tagging.py](blockchain_waste_water.py) - Generate a list of tags (one per column) for `wwp_analog` data
-
-[blockchain_get_data.py](blockchain_get_data.py) - Using information from tags, execute `increment` and `period` 
-queries. The code also generates a file called `blockchain.metadata.json` which contains a list of tags extracted from
-the blockchain. 
-
-```shell
-python3 blockchain_get_data.py --help
-<<COMMENT
-usage: blockchain_get_data.py [-h] [--conn CONN] [--plant-code {wwp}] [--timestamp-column TIMESTAMP_COLUMN] [--increments-interval {minute,hour,day}]
-                              [--increments-interval-value INCREMENTS_INTERVAL_VALUE] [--where-interval {minute,hour,day}] [--where-interval-value WHERE_INTERVAL_VALUE] [--all-data [ALL_DATA]]
-                              [--summary-data [SUMMARY_DATA]]
-
-optional arguments:
-    -h, --help                                                  show this help message and exit
-    --conn                          CONN                        REST connection
-    --plant-code                    PLANT_CODE                  plant code
-    --increments-interval           INCREMENTS_INTERVAL         increment time interval
-    --increments-interval-value     INCREMENTS_INTERVAL_VALUE   increment time interval value
-    --where-interval                WHERE_INTERVAL              where increment time interval in WHERE condition
-    --where-interval-value          WHERE_INTERVAL_VALUE        increment time interval used in WHERE condition
-    --all-data                      [ALL_DATA]                  Get all data
-    --summary-data                  [SUMMARY_DATA]              Get summary of data
-<<
-
-python3 blockchain_get_data.py \
-  --conn 45.79.18.179:32349 \
-  --plant-code wwp \
-  --timestamp-column timestamp \
-  --increments-interval minute \
-  --increments-interval-value 10 \
-  --where-interval day \
-  --where-interval-value 1 \
-  --all-data \
-  --summary-data
+* [blockchain_seed.py](blockchain_seed.py) - copy of blockchain policies from network (used for prep / pre-deployment)
+  * copies cluster, operator and table definition policies 
+  
+* [blockchain_declare_plants.py](blockchain_declare_plants.py) - create plant policies
+```json
+ {"plant" : {"name" : "power plant",
+             "company" : "Smart City",
+             "code" : "pp",
+             "address" : "805 Main St, Sabetha, KS 66534",
+             "loc" : "39.902911, -95.800508",
+             "dbms" : "cos",
+             "id" : "2dd2282c3758888214c8388f2e7ae751",
+             "date" : "2025-02-01T02:34:09.583701Z",
+             "ledger" : "global"}}
+```
+* [blockchain_tags.py](blockchain_tags.py) - create tag policies based on plant 
+```json
+ {"tag" : {"name" : "C-A Voltage",
+           "company" : "Smart City",
+           "table" : "pp_pm",
+           "column" : "c_n_voltage",
+           "data type" : "integer",
+           "unit of measurement" : "kV",
+           "plant" : "2dd2282c3758888214c8388f2e7ae751",
+           "multiply" : 0.01,
+           "id" : "74516232a987b63eb3a17aa8076c665d",
+           "date" : "2025-02-01T02:42:28.621181Z",
+           "ledger" : "global"}}
 ```
 
-The select columns for tags is based <a href="http://23.239.12.151:3100/d/ads1vwji3bvnkd/overview?orgId=1&refresh=5m" targer="_blanl">Waste Water Dashboard</a>
+* [blockchain_monitoring.py](blockchain_monitoring.py) - for power plant, create `monitoring` policies
+```json
+ {"monitoring" : {"name" : "South Main",
+                  "code" : "DF4",
+                  "plant" : "2dd2282c3758888214c8388f2e7ae751",
+                  "id" : "aef0292e46bc6ca799b074c2faebb0fe",
+                  "date" : "2025-02-01T02:50:30.393996Z",
+                  "ledger" : "global"}}
+```
 
-[get_data.py](get_data.py) - Given a list of tables (_water_ and _waste water_), generate a list of corresponding columns,,
-and get raw data, as well as summary data for the last 24 hours. The data is then stored into corresponding files. 
-
-[read_json.py](read_json.py) - Example for reading data from JSON file. Used to validate write is correct.
+* [rest_code.py](rest_code.py) - file dedicated to REST calls
 
 
-## JSON files
-[blockchain.metadata.json](blockchain.metadata.json) - Blockchain data for tags
-
-[wwp_analog.increments.json](wwp_analog.increments.json) - summary of data over last hour in 10 minute intervals 
-
-[wwp_analog.raw.json](wwp_analog.raw.json) - raw data over last hour 
 
 ## Comments
 **What is period**: The period function finds the first occurrence of data before or at a specified date and considers 
