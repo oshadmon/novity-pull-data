@@ -14,6 +14,7 @@ def publish_policy(conn:str, policy:dict):
         raise Exception(f"Failed to POST data against {conn} (Error: {error})")
     else:
         if not 200 <= int(r.status_code) < 300:
+            print(json.dumps(policy, indent=4))
             raise ConnectionError(f"Failed to POST data against {conn} (Error: {r.status_code})")
 
 

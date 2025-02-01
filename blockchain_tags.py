@@ -91,16 +91,258 @@ TABLE_MAPPING = {
                 "multiply": 0.01
             }
         }
+    },
+    "wp": {
+        # http://23.239.12.151:3100/d/aduno4bksgpa8d/overview?orgId=1&refresh=5m
+        "wp_digital": {
+            "NormalReady": {
+                "column": "atsnormalrdydi",
+                "unit": "status",
+                "mapping": {
+                    0: "Not Ready",
+                    1: "Ready",
+                    2: "On Normal",
+                    3: "On Standby",
+                    4: "Stopped",
+                    5: "Running",
+                    6: "Ok",
+                    7: "Alarm"
+                }
+            },
+            "OnStandby": {
+                "column": "atsonstandbydi",
+                "unit": "status",
+                "mapping": {
+                    0: "Not Ready",
+                    1: "Ready",
+                    2: "On Normal",
+                    3: "On Standby",
+                    4: "Stopped",
+                    5: "Running",
+                    6: "Ok",
+                    7: "Alarm"
+                }
+            },
+            "StandbyRdy": {
+                "column": "atsstandybyrdydi",
+                "unit": "status",
+                "mapping": {
+                    0: "Not Ready",
+                    1: "Ready",
+                    2: "On Normal",
+                    3: "On Standby",
+                    4: "Stopped",
+                    5: "Running",
+                    6: "Ok",
+                    7: "Alarm"
+                }
+            },
+            "GeneratorAlarm": {
+                "column": "generatoralarmdi",
+                "unit": "status",
+                "mapping": {
+                    0: "Not Ready",
+                    1: "Ready",
+                    2: "On Normal",
+                    3: "On Standby",
+                    4: "Stopped",
+                    5: "Running",
+                    6: "Ok",
+                    7: "Alarm"
+                }
+            },
+            "GeneratorRunning": {
+                "column": "generatorstatusdi",
+                "unit": "status",
+                "mapping": {
+                    0: "Not Ready",
+                    1: "Ready",
+                    2: "On Normal",
+                    3: "On Standby",
+                    4: "Stopped",
+                    5: "Running",
+                    6: "Ok",
+                    7: "Alarm"
+                }
+            },
+            "OxygenAlarm": {
+                "column": "oxygenmonitordi",
+                "unit": "status",
+                "mapping": {
+                    0: "Not Ready",
+                    1: "Ready",
+                    2: "On Normal",
+                    3: "On Standby",
+                    4: "Stopped",
+                    5: "Running",
+                    6: "Ok",
+                    7: "Alarm"
+                }
+            },
+            "PlantRunning": {
+                "column": "plantrunningdi",
+                "unit": "status",
+                "mapping": {
+                    0: "Not Ready",
+                    1: "Ready",
+                    2: "On Normal",
+                    3: "On Standby",
+                    4: "Stopped",
+                    5: "Running",
+                    6: "Ok",
+                    7: "Alarm"
+                }
+            },
+            "ServicePump1Running": {
+                "column": "servicepump1running_di",
+                "unit": "status",
+                "mapping": {
+                    0: "Not Ready",
+                    1: "Ready",
+                    2: "On Normal",
+                    3: "On Standby",
+                    4: "Stopped",
+                    5: "Running",
+                    6: "Ok",
+                    7: "Alarm"
+                }
+            },
+            "ServicePump2Running": {
+                "column": "servicepump2running_di",
+                "unit": "status",
+                "mapping": {
+                    0: "Not Ready",
+                    1: "Ready",
+                    2: "On Normal",
+                    3: "On Standby",
+                    4: "Stopped",
+                    5: "Running",
+                    6: "Ok",
+                    7: "Alarm"
+                }
+            },
+            "CarbonFeederRunning": {
+                "column": "carbonfeeder_runningfwd",
+                "unit": "status",
+                "mapping": {
+                    0: "Not Ready",
+                    1: "Ready",
+                    2: "On Normal",
+                    3: "On Standby",
+                    4: "Stopped",
+                    5: "Running",
+                    6: "Ok",
+                    7: "Alarm"
+                }
+            },
+            "Clear Well - High Level": {
+                "column": "clearwellhighleveldi",
+                "unit": "status",
+                "mapping": {
+                    0: "Ok",
+                    1: "Low",
+                    2: "High",
+                    3: "Error"
+                }
+            },
+            "Clear Well - Low Level": {
+                "column": "clearwelllowleveldi",
+                "unit": "status",
+                "mapping": {
+                    0: "Ok",
+                    1: "Low",
+                    2: "High",
+                    3: "Error"
+                }
+            },
+            "Water Tower - Level" : {
+                "column": "watertowerlevelcommsdi",
+                "unit": "status",
+                "mapping": {
+                    0: "Ok",
+                    1: "Error"
+                }
+            }
+        },
+        "wp_analog": {
+            "Speed": {
+                "column": "carbonfeeder_speedai_pv",
+                "unit": "%"
+            },
+            "Scale 1 Raw": {
+                "column": "chemicalscale1ai_pv",
+                "unit": "lbs"
+            },
+            "Scale 2 Raw": {
+                "column": "chemicalscale2ai_pv",
+                "unit": "lbs"
+            },
+            "Scale 3 Raw": {
+                "column": "chemicalscale3ai_pv",
+                "unit": "lbs"
+            },
+            "Scale 4 Raw": {
+                "column": "chemicalscale4ai_pv",
+                "unit": "lbs"
+            },
+            "Water Tower Level": {
+                "column": "watertowerlevelai_pv",
+                "unit": "ft"
+            },
+            "Raw Water Flow": {
+                "column": "rawwatermeterai_pv",
+                "unit": "gpm"
+            },
+            "Total Water - Today": {
+                "column": "rawwatermeterai_pv",
+                "unit": "Kgal",
+                "multiply": 0.001
+            },
+            "Total Water - Yesterday": {
+                "column": "rawwatermetertotalizer_yesday",
+                "unit": "Kgal",
+                "multiply": 0.001
+            },
+            "pH Level": {
+                "column": "phai_pv",
+                "unit": "pH"
+            },
+            "Combined Level": {
+                "column": "combinedturbidityai_pv",
+                "unit": "NTU"
+            },
+            "Filter 1": {
+                "column": "filter1turbidityai_pv",
+                "unit": "NTU"
+            },
+            "Filter 2": {
+                "column": "filter2turbidityai_pv",
+                "unit": "NTU"
+            },
+            "Filter 3": {
+                "column": "filter3turbidityai_pv",
+                "unit": "NTU"
+            },
+            "Combined": {
+                "column": "combinedchlorinatorai_pv",
+                "unit": "ppm"
+            },
+            "Free": {
+                "column": "freechlorinatorai_pv",
+                "unit": "ppm"
+            }
+        }
     }
 }
 
 for code in TABLE_MAPPING:
     for table in TABLE_MAPPING[code]:
+        print(table)
         plant_policy_id = execute_get(conn=CONN, command=f'blockchain get plant where code={code} bring [*][id]',
                                       is_query=False)
 
         for name in TABLE_MAPPING[code][table]:
-            columns = get_columns(conn=CONN, table_name=table)
+            columns = get_columns(conn='23.239.12.151:32349', table_name=table)
             column = TABLE_MAPPING[code][table][name]['column']
             new_policy = {
                 "tag": {
@@ -119,7 +361,7 @@ for code in TABLE_MAPPING:
                 new_policy['tag']['multiply'] = TABLE_MAPPING[code][table][name]['multiply']
 
             output = execute_get(conn=CONN,
-                                 command=f'blockchain get tag where name="{TABLE_MAPPING[code][table][name]}" and table={table} bring.count',
+                                 command=f'blockchain get tag where name="{name}" and table={table} bring.count',
                                  is_query=False)
             if not output:
                 publish_policy(conn=CONN, policy=new_policy)

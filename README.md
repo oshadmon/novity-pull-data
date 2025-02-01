@@ -1,5 +1,7 @@
 # Pulling Smart City Data
 
+## Files 
+
 * [blockchain_seed.py](blockchain_seed.py) - copy of blockchain policies from network (used for prep / pre-deployment)
   * copies cluster, operator and table definition policies 
   
@@ -38,6 +40,20 @@
                   "id" : "aef0292e46bc6ca799b074c2faebb0fe",
                   "date" : "2025-02-01T02:50:30.393996Z",
                   "ledger" : "global"}}
+```
+
+* [get_blockchain_policies.py](get_blockchain_policies.py) - Get blockchain policies
+```shell
+# plants 
+python3 get_blockchain_policies.py --write-file
+
+# tags 
+python3 get_blockchain_policies.py --policy-type tag --plant-name "waste water"  --write-file
+python3 get_blockchain_policies.py --policy-type tag --plant-name "power plant"  --write-file
+python3 get_blockchain_policies.py --policy-type tag --plant-name "water plant"  --write-file
+
+# Monitoring
+python3 get_blockchain_policies.py --policy-type monitoring --plant-name "power plant"  --write-file
 ```
 
 * [rest_code.py](rest_code.py) - file dedicated to REST calls
