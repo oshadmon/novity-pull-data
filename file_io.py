@@ -25,13 +25,17 @@ def read_data(file_name:str):
             with open(full_path, 'r') as f:
                 # print(f.read().replace("\t", "").replace("\n",""))
                 data = json.load(f)
-                print(data)
         except Exception as error:
             raise Exception(f"Failed to read content in {full_path} (Error; {error})")
     else:
         raise FileNotFoundError(f"Failed to locate {full_path}")
 
+    output = "["
+    for row in data:
+        output += "\n\t" + json.dumps(row) + ","
+    output = output.rsplit(",", 1)[0] + "\n]"
+    print(output)
 
 if __name__ == '__main__':
-    file_path  = input('File: ')
-    read_data(read_data(file_path=file_path))
+    file_path  = input('File: ').strip()
+    read_data(file_name=file_path)

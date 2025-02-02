@@ -1,10 +1,6 @@
 # Pulling Smart City Data
 
-## Files 
-
-* [blockchain_seed.py](blockchain_seed.py) - copy of blockchain policies from network (used for prep / pre-deployment)
-  * copies cluster, operator and table definition policies 
-  
+## Files
 * [blockchain_declare_plants.py](blockchain_declare_plants.py) - create plant policies
 ```json
  {"plant" : {"name" : "power plant",
@@ -58,6 +54,18 @@ python3 get_blockchain_policies.py --policy-type monitoring --plant-name "power 
 
 * [rest_code.py](rest_code.py) - file dedicated to REST calls
 
+* [file_io.py](file_io.py) - Read / write results to JSON file. 
+_Write_ is called from other scripts to store results, to read:
+```shell
+oris-mbp:novity-pull-data orishadmon$ python3 file_io.py 
+File: metadata/plant.json
+[
+        {"plant": {"name": "waste water", "company": "Smart City", "code": "wwp", "address": "192nd Road, Sabetha, KS 66534", "loc": "39.914097, -95.793013", "dbms": "cos", "id": "71af136ed58caa8874c50df85c82ef87", "date": "2025-02-01T21:28:03.977497Z", "ledger": "global"}},
+        {"plant": {"name": "power plant", "company": "Smart City", "code": "pp", "address": "805 Main St, Sabetha, KS 66534", "loc": "39.902911, -95.800508", "dbms": "cos", "id": "2dd2282c3758888214c8388f2e7ae751", "date": "2025-02-01T21:28:04.231536Z", "ledger": "global"}},
+        {"plant": {"name": "water plant", "company": "Smart City", "code": "wp", "address": "66534, Sabetha, KS 66534", "loc": "39.907251, -95.898826", "dbms": "cos", "id": "4ca6c6f5d66fb9084cab0108605b6437", "date": "2025-02-01T21:28:04.477259Z", "ledger": "global"}}
+]
+
+```
 
 
 ## Comments
