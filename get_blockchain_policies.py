@@ -5,7 +5,7 @@ import os
 from rest_code import execute_get
 from file_io import write_data
 
-CONN = '104.237.130.228:32049'
+CONN = '172.236.61.154:32349'
 
 
 def get_plant(plant_name:str=None):

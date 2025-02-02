@@ -1,6 +1,6 @@
 from rest_code import execute_get, publish_policy
 
-CONN = "104.237.130.228:32049"
+CONN = "172.236.61.154:32349"
 
 # http://23.239.12.151:3100/d/bdr5ti5cfz18gb/overview?orgId=1&refresh=5m&tab=transform
 MONITOR_LIST = {

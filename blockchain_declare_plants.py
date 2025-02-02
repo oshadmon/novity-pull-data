@@ -1,7 +1,7 @@
 # script to declare plants and corresponding
 from rest_code import *
 
-CONN = "104.237.130.228:32049"
+CONN = "172.236.61.154:32349"
 
 PLANTS = {
     "waste water": {

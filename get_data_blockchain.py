@@ -5,7 +5,7 @@ import os.path
 from get_data import execute_get
 from file_io import write_data
 
-CONN = "104.237.130.228:32049"
+CONN = "172.236.61.154:32349"
 
 def __check_value(value):
     try:
@@ -113,7 +113,7 @@ def main():
 
         cmd = anylog_cmd + " " + query
         print(cmd)
-        output = execute_get(conn="23.239.12.151:32349", command=cmd, is_query=True)
+        output = execute_get(conn=CONN, command=cmd, is_query=True)
         for i in range(len(output)):
             output[i] = __format_results(results=output[i], tags_list=tag_policies, monitor_list=monitor_list)
         if args.file_store:

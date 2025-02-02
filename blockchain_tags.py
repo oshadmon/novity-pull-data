@@ -1,6 +1,6 @@
 from rest_code import execute_get, get_columns, publish_policy
 
-CONN = "104.237.130.228:32049"
+CONN = "172.236.61.154:32349"
 
 TABLE_MAPPING = {
     "wwp": {

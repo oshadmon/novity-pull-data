@@ -1,4 +1,5 @@
 import json
+import urllib3
 import requests
 
 def publish_policy(conn:str, policy:dict):
@@ -9,7 +10,7 @@ def publish_policy(conn:str, policy:dict):
     }
 
     try:
-        r = requests.post(url=f"http://{conn}", headers=headers, data=new_policy)
+        r = requests.post(url=f"http://{conn}", headers=headers, data=new_policy    )
     except Exception as error:
         raise Exception(f"Failed to POST data against {conn} (Error: {error})")
     else:
@@ -39,6 +40,7 @@ def execute_get(conn:str, command:str, is_query:bool=False):
         except Exception:
             output = r.text
     return output
+
 
 
 def get_columns(conn:str, table_name:str):
