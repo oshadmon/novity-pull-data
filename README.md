@@ -51,7 +51,32 @@ python3 get_blockchain_policies.py --policy-type tag --plant-name "water plant" 
 python3 get_blockchain_policies.py --policy-type monitoring --plant-name "power plant"  --write-file
 ```
 
-* [get_data_blockchain.py](get_data_blockchain.py) - Baseed on blockchain _tags_ and _monitoring_ policiies, execute queries. -
+
+* [get_data_blockchain.py](get_data_blockchain.py) - Based on blockchain _tags_ and _monitoring_ policiies, execute queries. -
+```shell
+python3 ./get_data_blockchain.py \
+  --plant-code pp \
+  --interval hour \
+  --interval-value 1 \
+  --increments-interval minute \
+  --increments-interval-value 10 \
+  --aggregate-data \
+  --file-store \
+  --limit 10
+
+python3 ./get_data_blockchain.py \
+  --plant-code wwp \
+  --interval hour \
+  --interval-value 1 \
+  --increments-interval minute \
+  --increments-interval-value 10 \
+  --raw-data \
+  --file-store \
+  --limit 10
+```
+
+* [get_data.py](get_data.py) - Query based on `get columns`
+
 
 * [rest_code.py](rest_code.py) - file dedicated to REST calls
 * [file_io.py](file_io.py) - Read / write results to JSON file. 

@@ -5,7 +5,7 @@ import os.path
 from rest_code import execute_get
 from file_io import write_data
 
-CONN = "172.236.61.154:32349"
+CONN = "23.239.12.151:32349"
 
 def __check_value(value):
     try:
@@ -47,30 +47,6 @@ def __format_results(results:dict, tags_list:list, monitor_list):
             elif 'mapping' in tag['tag']:
                 results[tag['tag']['column']] = tag['tag']['mapping'][str(results[column_name])]
             results[f"Avg {tag['tag']['name']}"] = results.pop(column_name)
-
-        # if tag['tag']['column'] in results:
-        #     if 'multiply' in tag['tag']:
-        #         results[f"min_{tag['tag']['column']}"] = results[f"min_{tag['tag']['column']}"] * tag['tag']['multiply']
-        #     if 'mapping' in tag['tag']:
-        #         results[tag['tag']['name']] = tag['tag']['mapping'][str(results[tag['tag']['name']])]
-        #     results[tag['tag']['name']] = results.pop(tag['tag']['column'])
-        #
-        # elif f"min_{tag['tag']['column']}" in results:
-        #     if 'multiply' in tag['tag']:
-        #         results[f"min_{tag['tag']['column']}"] = results[f"min_{tag['tag']['column']}"] * tag['tag']['multiply']
-        #     if 'mapping' in tag['tag']:
-        #         results[f"min_{tag['tag']['column']}"] = tag['tag']['mapping'][str(results[tag['tag']['name']])]
-        #     results[f"Min {tag['tag']['name']}"] = results.pop(f"min_{tag['tag']['column']}")
-        #
-        # elif f"avg_{tag['tag']['column']}" in results:
-        #     results[f"Avg {tag['tag']['name']}"] = results.pop(f"avg_{tag['tag']['column']}")
-        # elif f"max_{tag['tag']['column']}" in results:
-        #     results[f"Max {tag['tag']['name']}"] = results.pop(f"max_{tag['tag']['column']}")
-        # if all('Monitor' in x for x in [results, tag['tag']['name']]):
-        #     try:
-        #         results[tag['tag']['name']] = monitor_list[results[tag['tag']['name']].strip()]
-        #     except:
-        #         pass
 
     return results
 
@@ -178,7 +154,7 @@ def main():
         query = query.rsplit(',', 1)[0]
         query += f" FROM {table_name} WHERE {args.timestamp_column} <= NOW() - {args.interval_value} {args.interval}"
         if args.plant_code == 'pp' and args.monitor_where is not None:
-            query += f' and monitoring_id={args.monitor_where}'
+            query += f' and monitor_id="{args.monitor_where.upper()}"'
         if group_by:
             query += f" GROUP BY {','.join(group_by)}"
         if args.limit is not None:

@@ -13,7 +13,7 @@ def publish_policy(conn:str, policy:dict):
     }
 
     try:
-        r = requests.post(url=f"http://{conn}", headers=headers, data=new_policy    )
+        r = requests.post(url=f"http://{conn}", headers=headers, data=new_policy)
     except Exception as error:
         raise Exception(f"Failed to POST data against {conn} (Error: {error})")
     else:
@@ -28,19 +28,16 @@ def execute_get(conn:str, command:str, is_query:bool=False):
         "command": command,
         "User-Agent": "AnyLog/1.23"
     }
-    received_size = 0
-    data = bytearray()
 
     if is_query is True:
         headers['destination'] = 'network'
 
     try:
-        response = requests.get(url=f'http://{conn}', headers=headers, timeout=(600, 1200), stream=True)
+        response = requests.get(url=f'http://{conn}', headers=headers, timeout=(600, 12000))
+        response.raise_for_status()
     except Exception as error:
         raise Exception(f"Failed to execute GET against {conn} (Error: {error})")
     else:
-        if not 200 <= response.status_code <= 300:
-            raise ConnectionError(f"Failed to execute GET against {conn} (Network Error: {response.status})")
         try:
             output = response.json()
         except:
