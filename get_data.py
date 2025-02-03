@@ -47,6 +47,8 @@ def execute_get(conn:str, command:str, is_query:bool=False):
             output = r.json()
         except Exception:
             output = r.text
+        if 'err_code' in output:
+            raise Exception(f'Error Code: {output["err_code"]} | Message: {output["err_text"]}')
     return output
 
 

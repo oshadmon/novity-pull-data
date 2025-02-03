@@ -1,0 +1,21 @@
+[
+	{"monitoring": {"name": "Westar Interconnection", "code": "KPL", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "15dff0da5657e55ed0a251037baa75f3", "date": "2025-02-01T21:28:11.153925Z", "ledger": "global"}},
+	{"monitoring": {"name": "West Feeder", "code": "BF1", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "dbdd8b3d8c1eba953fdc64c23de24372", "date": "2025-02-01T21:28:11.401527Z", "ledger": "global"}},
+	{"monitoring": {"name": "East Feeder", "code": "BF2", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "7e7aaae57a59cb06a73431042caa15a0", "date": "2025-02-01T21:28:11.649421Z", "ledger": "global"}},
+	{"monitoring": {"name": "Center Feeder", "code": "BF3", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "24f6a2d3d1845c9c6ef2e8011bbd22dc", "date": "2025-02-01T21:28:11.892499Z", "ledger": "global"}},
+	{"monitoring": {"name": "Industrial Feeder", "code": "BF4", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "2a60651a2174a5af5287d5a7c795f2d8", "date": "2025-02-01T21:28:12.143136Z", "ledger": "global"}},
+	{"monitoring": {"name": "Station Power", "code": "BSP", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "a52db53704a14d850001cc979d5a2343", "date": "2025-02-01T21:28:12.398056Z", "ledger": "global"}},
+	{"monitoring": {"name": "Bus Tie 12470/12470", "code": "BCT", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "b67adea0d07899837c101f38597c6c3b", "date": "2025-02-01T21:28:12.640870Z", "ledger": "global"}},
+	{"monitoring": {"name": "Bus Tie 12470/12470", "code": "CBT", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "29fd57a9a370603e58be2fa03d139906", "date": "2025-02-01T21:28:12.880366Z", "ledger": "global"}},
+	{"monitoring": {"name": "Southeast Feeder", "code": "CF1", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "7cda24f7c390c30367d5f61c73f96901", "date": "2025-02-01T21:28:13.125327Z", "ledger": "global"}},
+	{"monitoring": {"name": "SAC Homes", "code": "CF2", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "126a631413a156e66bbd3d5bb5b42562", "date": "2025-02-01T21:28:13.371755Z", "ledger": "global"}},
+	{"monitoring": {"name": "North Feeder", "code": "CF3", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "68c7c09e754ed5c76adf5d4953e2de42", "date": "2025-02-01T21:28:13.619076Z", "ledger": "global"}},
+	{"monitoring": {"name": "Station Power", "code": "CSP", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "5cd69d8f1456866a208e37a74b77ad72", "date": "2025-02-01T21:28:13.866890Z", "ledger": "global"}},
+	{"monitoring": {"name": "Bus Tie 12470/2400", "code": "CDT", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "00552cbc17f8b4152837a7beb0d73d0a", "date": "2025-02-01T21:28:14.112759Z", "ledger": "global"}},
+	{"monitoring": {"name": "Bus Tie 2400/12470", "code": "DCT", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "6387eb584d500f4f204374d04ea67d09", "date": "2025-02-01T21:28:14.356479Z", "ledger": "global"}},
+	{"monitoring": {"name": "North Residence", "code": "DF1", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "4d9fdf9e883106e832553e5f5d1389f9", "date": "2025-02-01T21:28:14.602889Z", "ledger": "global"}},
+	{"monitoring": {"name": "North Main", "code": "DF2", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "f7eadf99ec762e0fd6a6e074c8650485", "date": "2025-02-01T21:28:14.840036Z", "ledger": "global"}},
+	{"monitoring": {"name": "Wenger West", "code": "DF3", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "243e8f2d85b190096dd6831a76f569a8", "date": "2025-02-01T21:28:15.095403Z", "ledger": "global"}},
+	{"monitoring": {"name": "South Main", "code": "DF4", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "aef0292e46bc6ca799b074c2faebb0fe", "date": "2025-02-01T21:28:15.334713Z", "ledger": "global"}},
+	{"monitoring": {"name": "Station Power", "code": "DSP", "plant": "2dd2282c3758888214c8388f2e7ae751", "id": "acfd6af49d90bc70890a27cae5ebf186", "date": "2025-02-01T21:28:15.580485Z", "ledger": "global"}}
+]
