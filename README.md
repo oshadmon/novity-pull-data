@@ -27,7 +27,6 @@
            "date" : "2025-02-01T02:42:28.621181Z",
            "ledger" : "global"}}
 ```
-
 * [blockchain_monitoring.py](blockchain_monitoring.py) - for power plant, create `monitoring` policies
 ```json
  {"monitoring" : {"name" : "South Main",
@@ -38,7 +37,7 @@
                   "ledger" : "global"}}
 ```
 
-* [get_blockchain_policies.py](get_blockchain_policies.py) - Get blockchain policies
+* [get_blockchain_policies.py](get_blockchain_policies.py) - Get blockchain policies, sample outputs can be found in [metadata](metadata/) directory.
 ```shell
 # plants 
 python3 get_blockchain_policies.py --write-file
@@ -52,8 +51,9 @@ python3 get_blockchain_policies.py --policy-type tag --plant-name "water plant" 
 python3 get_blockchain_policies.py --policy-type monitoring --plant-name "power plant"  --write-file
 ```
 
-* [rest_code.py](rest_code.py) - file dedicated to REST calls
+* [get_data_blockchain.py](get_data_blockchain.py) - Baseed on blockchain _tags_ and _monitoring_ policiies, execute queries. -
 
+* [rest_code.py](rest_code.py) - file dedicated to REST calls
 * [file_io.py](file_io.py) - Read / write results to JSON file. 
 _Write_ is called from other scripts to store results, to read:
 ```shell

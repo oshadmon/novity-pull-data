@@ -1,4 +1,7 @@
 import json
+import ast
+import time
+
 import urllib3
 import requests
 
@@ -20,27 +23,30 @@ def publish_policy(conn:str, policy:dict):
 
 
 def execute_get(conn:str, command:str, is_query:bool=False):
+    output = None
     headers = {
         "command": command,
         "User-Agent": "AnyLog/1.23"
     }
+    received_size = 0
+    data = bytearray()
 
     if is_query is True:
         headers['destination'] = 'network'
 
     try:
-        r = requests.get(url=f"http://{conn}", headers=headers)
+        response = requests.get(url=f'http://{conn}', headers=headers, timeout=(600, 1200), stream=True)
     except Exception as error:
         raise Exception(f"Failed to execute GET against {conn} (Error: {error})")
     else:
-        if not 200 <= int(r.status_code) < 300:
-            raise ConnectionError(f"Failed to execute GET against {conn} (Network Error: {r.status_code})")
+        if not 200 <= response.status_code <= 300:
+            raise ConnectionError(f"Failed to execute GET against {conn} (Network Error: {response.status})")
         try:
-            output = r.json()
-        except Exception:
-            output = r.text
-    return output
+            output = response.json()
+        except:
+            output = response.text
 
+    return output
 
 
 def get_columns(conn:str, table_name:str):
